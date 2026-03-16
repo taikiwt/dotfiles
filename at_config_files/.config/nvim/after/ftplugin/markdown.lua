@@ -1,0 +1,44 @@
+-- ===== 完全に無効化したい場合 =====
+vim.cmd("RenderMarkdown disable")
+
+-- ===== 細かく調整して使いたい場合の設定例 =====
+-- require('render-markdown').setup({
+--   -- 1. 記号を隠すかどうか（一番影響が大きい設定）
+--   -- trueにすると、**ボールド**などの記号が消えてスッキリしますが、編集しにくいことがあります
+--   conceal = {
+--     enabled = false,
+--   },
+--
+--   -- 2. 見出し（# H1 など）の装飾
+--   heading = {
+--     enabled = true,
+--     sign = false,      -- 左端のサインを消す
+--     icons = {},        -- アイコン（󰲡 など）を表示しない場合は空にする
+--     -- background = 'RenderMarkdownH1Bg', -- 背景色を変えたい場合
+--   },
+--
+--   -- 3. コードブロックの設定
+--   code = {
+--     enabled = true,
+--     sign = false,      -- 左端のサインを消す
+--     style = 'full',    -- 'full'（枠あり）か 'language'（言語名のみ）
+--     width = 'block',   -- 'block' にするとエディタ幅いっぱいに背景色がつきます
+--   },
+--
+--   -- 4. 箇条書き（リスト）の記号
+--   bullet = {
+--     enabled = true,
+--     icons = { '●', '○', '◆', '◇' }, -- 好きな記号に変更可能
+--   },
+--
+--   -- 5. チェックボックス [ ] の見た目
+--   checkbox = {
+--     enabled = true,
+--     unchecked = { icon = '󰄱 ' },
+--     checked = { icon = '󰄵 ' },
+--   },
+-- })
+
+-- Neovim自体の設定：記号を常に表示させる
+-- これを 0 にしておけば、プラグインがオンでも記号が勝手に消えません
+-- vim.opt_local.conceallevel = 0
