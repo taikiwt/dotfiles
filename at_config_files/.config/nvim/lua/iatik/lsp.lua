@@ -4,6 +4,23 @@
 -- vim.lsp.enable("ts_ls")
 -- vim.lsp.enable("svelte")
 
+-- ▼▼ Tailwind v4 の独自ルール(@source等)の警告を無視するための設定 (Neovim 0.11+ 向け) ▼▼
+vim.lsp.config("cssls", {
+  settings = {
+    css = {
+      lint = {
+        unknownAtRules = "ignore",
+      },
+    },
+    scss = {
+      lint = {
+        unknownAtRules = "ignore",
+      },
+    },
+  },
+})
+-- ▲▲ ここまで ▲▲
+
 -- lspの機能を扱うための独自キーマップを設定
 local keymap = vim.keymap
 vim.api.nvim_create_autocmd("LspAttach", {

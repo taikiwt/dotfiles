@@ -11,6 +11,13 @@ return {
 
     -- configure treesitter
     treesitter.setup({ -- enable syntax highlighting
+      -- Lua LS の警告を消すためにデフォルト値を明記
+      sync_install = false,
+      auto_install = true, -- 未インストールのパーサーを自動インストールするかどうか
+      ignore_install = {},
+      modules = {},
+
+      --
       highlight = {
         enable = true,
       },

@@ -18,7 +18,7 @@ return {
         json = { "biome" },
         yaml = { "prettier" },
         toml = { "prettier" },
-        markdown = { "prettier" },
+        -- markdown = { "prettier" },
         graphql = { "biome" },
         lua = { "stylua" },
         python = { "isort", "black" },
