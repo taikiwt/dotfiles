@@ -13,7 +13,7 @@ modmap:
       Alt_L: Ctrl_R
       # KEY_MUHENKAN: Super_L
       KEY_MUHENKAN: Alt_L
-      KEY_KATAKANAHIRAGANA: KEY_HENKAN
+      # KEY_KATAKANAHIRAGANA: KEY_HENKAN
       # KEY_HENKAN: KEY_F18
 keymap:
   # - name: Input mode change
