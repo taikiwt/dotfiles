@@ -27,3 +27,10 @@ keymap.set("n", "<leader>tx", "<cmd>tabclose<CR>", { desc = "Close current tab" 
 keymap.set("n", "<leader>tn", "<cmd>tabn<CR>", { desc = "Goto next tab" })
 keymap.set("n", "<leader>tp", "<cmd>tabp<CR>", { desc = "Goto previous tab" })
 keymap.set("n", "<leader>tf", "<cmd>tabnew %<CR>", { desc = "Open current buffer in new tab" })
+
+-- clipboard [C]opy filePath
+keymap.set("n", "<leader>cp", function()
+  local path = vim.fn.expand("%")
+  vim.fn.setreg("+", path)
+  print("Copied: " .. path)
+end, { desc = "Copy relative path to clipboard" })

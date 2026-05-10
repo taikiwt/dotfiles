@@ -50,11 +50,8 @@ cask "font-symbols-only-nerd-font"
 cask "ghostty"
 cask "google-chrome", args: { appdir: "/Applications" }
 cask "karabiner-elements"
-cask "logseq"
 cask "maccy"
-cask "min"
 cask "obsidian", args: { appdir: "/Applications" }
-cask "postman", args: { appdir: "/Applications" }
 cask "proxyman", args: { appdir: "/Applications" }
 cask "raycast"
 cask "the-unarchiver", args: { appdir: "/Applications" }
@@ -62,6 +59,4 @@ cask "utm"
 cask "visual-studio-code", args: { appdir: "/Applications" }
 cask "vlc", args: { appdir: "/Applications" }
 cask "warp", args: { appdir: "/Applications" }
-cask "wezterm"
 cask "zed"
-cask "zen"
