@@ -161,8 +161,8 @@ fi
 
 
 if [[ "$OSTYPE" == darwin* ]]; then
-  # Added by Windsurf
-  export PATH="~/.codeium/windsurf/bin:$PATH"
+  # Added by Antigravity
+  export PATH="/Users/taikiwt/.antigravity/antigravity/bin:$PATH"
 fi
 
 if [[ "$OSTYPE" == linux* ]]; then
@@ -175,7 +175,35 @@ if [ -f ~/.zshrc.local ]; then
     source ~/.zshrc.local
 fi
 
+# --------------------------------------------------------
+# sitecue Custom Git Aliases
+# --------------------------------------------------------
+
+# 1. 堅牢なAdd（必ず状況を確認する）
+alias gaa='git add --all && git status'
+
+# 2. 直感的なCommit（wipをデフォルトに組み込む）
+alias gc='git commit -m'
+alias gcw='git commit -m "wip: "'
+alias gcae='git commit --allow-empty -m "chore: empty commit for trigger"'
+
+# 3. 既存コミットの修正（!を付けて「上書き」を意識）
+alias gca!='git commit --amend'
+alias gcan!='git commit --amend --no-edit'
+
+# 4. 歴史の整理（引数に数字を入れるだけ：例 grbi 3）
+alias grbi='git rebase -i HEAD~'
+
+# 5. [おまけ] sitecue開発で役立つ「引き算」の確認コマンド
+alias gl='git log --oneline -n 10' # 直近10件だけサクッと見る
+alias gd='git diff --stat'        # どのファイルが変わったかだけ把握する
+alias gdf='git diff > change.diff'        # 変更部分をファイル出力
+
+
+# 自前のスクリプトをPATHに登録
+export PATH="$HOME/dotfiles/scripts:$PATH"
 
 # Starship prompt (プロンプトのカスタマイズ)
 # ファイルの最後に記述する
 eval "$(starship init zsh)"
+

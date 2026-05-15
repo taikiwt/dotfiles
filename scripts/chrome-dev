@@ -1,0 +1,23 @@
+#!/bin/bash
+
+if [[ "$OSTYPE" == "darwin"* ]]; then
+  # Macの設定
+  CHROME_BIN="/Applications/Google Chrome Canary.app/Contents/MacOS/Google Chrome Canary"
+  USER_DATA_DIR="$HOME/Library/Application Support/Google/Chrome Canary/Canary-Dev-Env"
+else
+  # Linuxの設定
+  CHROME_BIN="/usr/bin/google-chrome-stable"
+  USER_DATA_DIR="$HOME/.config/google-chrome-en-dev"
+fi
+
+echo "[Launch] Google Chrome Canary (English Mode)"
+
+env LANGUAGE=en_US.UTF-8 \
+"$CHROME_BIN" \
+  --user-data-dir="$USER_DATA_DIR" \
+  --lang=en-US \
+  --no-first-run \
+  --no-default-browser-check \
+  "$@" &
+
+echo "[Success] Canary started (PID: $!)"

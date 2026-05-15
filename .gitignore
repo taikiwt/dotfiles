@@ -26,6 +26,9 @@
 !/fedora/
 !/fedora/**
 
+!/scripts/
+!/scripts/**
+
 !/at_config_files/
 !/at_config_files/.config/
 !/at_config_files/.config/nvim/

@@ -59,7 +59,7 @@ background = #000000
 # selection-foreground = #c6d0f5
 # =========== Theme - End ==================
 
-font-size = 13
+font-size = 15
 
 window-theme = dark
 
