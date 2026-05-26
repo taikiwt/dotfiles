@@ -202,6 +202,7 @@ alias gdf='git diff > change.diff'        # 変更部分をファイル出力
 
 # 自前のスクリプトをPATHに登録
 export PATH="$HOME/dotfiles/scripts:$PATH"
+export PATH="$HOME/dev/github.com/taikiwt/MyScripts:$PATH"
 
 # Starship prompt (プロンプトのカスタマイズ)
 # ファイルの最後に記述する
