@@ -31,12 +31,17 @@
 
 !/at_config_files/
 !/at_config_files/.config/
+
 !/at_config_files/.config/nvim/
 !/at_config_files/.config/nvim/**
+/at_config_files/.config/nvim/lazy-lock.json
+
 !/at_config_files/.config/yazi/
 !/at_config_files/.config/yazi/**
+
 !/at_config_files/.config/karabiner/
 !/at_config_files/.config/karabiner/**
+
 !/at_config_files/.config/xremap/
 !/at_config_files/.config/xremap/**
 
