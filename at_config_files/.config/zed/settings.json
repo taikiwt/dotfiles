@@ -28,9 +28,9 @@
     },
   },
   "theme": {
-    "mode": "system",
+    "mode": "dark",
     "light": "One Light",
-    "dark": "One Dark"
+    "dark": "Rosé Pine"
   },
   "vim_mode": true,
   "ui_font_size": 16,
