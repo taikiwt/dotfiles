@@ -9,49 +9,152 @@
   {
     "context": "Workspace",
     "bindings": {
-      // "shift shift": "file_finder::Toggle"
-      "ctrl-t k": ["workspace::ActivatePaneInDirection", "Up"],
-      "ctrl-t h": ["workspace::ActivatePaneInDirection", "Left"],
-      "ctrl-t j": ["workspace::ActivatePaneInDirection", "Down"],
-      "ctrl-t l": ["workspace::ActivatePaneInDirection", "Right"]
-    }
+      "ctrl-t k": "workspace::ActivatePaneUp",
+      // "ctrl-t h": "workspace::ActivatePaneLeft",
+      "ctrl-t h": "workspace::ToggleLeftDock",
+      // "ctrl-t j": "workspace::ActivatePaneDown",
+      "ctrl-t j": "workspace::ToggleBottomDock",
+      "ctrl-t l": "workspace::ActivatePaneRight",
+      // 画面最大化
+      "ctrl-e m": "workspace::ToggleZoom",
+    },
   },
   {
     "context": "Editor",
     "bindings": {
-      // "j k": ["workspace::SendKeystrokes", "escape"]
-    }
+      // 必要に応じて記述
+    },
   },
-  {
-    "context": "Terminal",
-    "bindings": {
-      // "ctrl-t k": ["workspace::ActivatePaneInDirection", "Up"]
-    }
-  },
+  // ==========================================
+  // 1. ファイルツリー（Project Panel）内での操作
+  // ==========================================
   {
     "context": "ProjectPanel",
     "bindings": {
-      // "ctrl-t l": ["workspace::ActivatePaneInDirection", "Right"]
-    }
+      // 右（メインエディタ方向）にフォーカスを戻す
+      "ctrl-e l": "workspace::ActivatePaneRight",
+    },
   },
+  // ==========================================
+  // 2. あいまい検索（ポップアップ表示中）での選択移動
+  // (スキップ中: デフォルトの ctrl-n/p で移動可能)
+  // ==========================================
+  {
+    "context": "Picker && !menu",
+    "bindings": {
+      // 一旦スキップ
+    },
+  },
+  // ==========================================
+  // 3. インサートモードの設定
+  // ==========================================
   {
     "context": "vim_mode == insert",
     "bindings": {
       "j j": "vim::NormalBefore",
-      "ctrl-l": "editor::MoveRight"
-    }
+      "ctrl-l": "editor::MoveRight",
+    },
   },
+  // ==========================================
+  // 4. ノーマルモードの設定（メインの共通バインド）
+  // ==========================================
+
+  // space 単体のデフォルト挙動を無効化する（これを追加）
   {
-    "context": "vim_mode == normal",
+    "context": "VimControl && !menu",
+    "bindings": {
+      "space": null,
+    },
+  },
+
+  {
+    "context": "Editor && vim_mode == normal && !VimWaiting && !menu",
     "bindings": {
       "shift-h": "vim::FirstNonWhitespace",
       "shift-l": "vim::EndOfLine",
+
+      // ----- 検索系バインド -----
       "space f f": "file_finder::Toggle",
       "space f s": "workspace::NewSearch",
-      "space e": "workspace::ToggleLeftDock",
-      "space t": "workspace::ToggleBottomDock",
-      "ctrl-h": "pane::ActivatePrevItem",
-      "ctrl-l": "pane::ActivateNextItem"
-    }
-  }
+      // プロジェクト切り替え
+      "space f p": "projects::OpenRecent",
+
+      // ----- 定義ジャンプ関連 Go -----
+      // 変数・関数の定義・宣言箇所へジャンプ
+      "space g d": "editor::GoToDefinition", // `g d`
+      // カーソル下の関数や変数がプロジェクト内のどこで使われて(参照されて)いるか一覧表示
+      "space g r": "editor::FindAllReferences", // `g A`
+      // カーソル下の関数や変数の型定義箇所へジャンプ
+      "space g t": "editor::FindAllReferences", // `g y`
+      // ホバー時と同じ情報表示を出す
+      "space g h": "editor::Hover", // `g h`
+      // 現在のファイルのシンボル一覧
+      "space g s": "outline::Toggle", // `cmd+shift+o`
+
+      // ----- 診断系 Diagnostics -----
+      "space d l": "diagnostics::Deploy", // `cmd+shift+m`
+      // 次のエラー(警告)箇所へ移動
+      "space d n": "editor::GoToDiagnostic", // `g ]`
+      "space d p": "editor::GoToPreviousDiagnostic", // `g [`
+      // カーソル下に対するコードアクションを表示
+      // ※Code Actions: LSPが検知した問題に対する修正やリファクタリングの選択肢を提案・実行する機能
+      "space d c": "editor::ToggleCodeActions", // `g .`
+
+      // ----- タブ切り替え -----
+      "space t h": "pane::ActivatePreviousItem",
+      "space t l": "pane::ActivateNextItem",
+
+      // ----- サイドバー（ファイルツリー）の純粋なトグル -----
+      "space e e": "workspace::ToggleLeftDock",
+      "space e t": "workspace::ToggleBottomDock",
+
+      // エディタから左（ファイルツリー方向）へフォーカスを移動
+      "ctrl-e h": "workspace::ActivatePaneLeft",
+      // エディタから下（ターミナル方向）へフォーカスを移動
+      "ctrl-e j": "workspace::ActivatePaneDown",
+
+      // ----- 画面分割 -----
+      "space s l": "pane::SplitRight",
+      "space s j": "pane::SplitDown",
+      "space s x": "pane::CloseActiveItem",
+      "space s a": "pane::JoinAll",
+      // ----- 画面移動 -----
+      "ctrl-h": "workspace::ActivatePaneLeft",
+      "ctrl-j": "workspace::ActivatePaneDown",
+      "ctrl-k": "workspace::ActivatePaneUp",
+      "ctrl-l": "workspace::ActivatePaneRight",
+      // ----- 画面履歴移動 -----
+      "space p b": "pane::GoBack", // ctrl-o
+      "space p f": "pane::GoForward", // ctro-i
+    },
+  },
+  // ==========================================
+  // 5. ターミナルパネル内での操作
+  // ==========================================
+  {
+    "context": "Terminal",
+    "bindings": {
+      // ----- 画面分割 -----
+      "ctrl-e s l": "pane::SplitRight",
+      "ctrl-e s j": "pane::SplitDown",
+      // 新規タブ(新規ターミナル)
+      "ctrl-e t": "workspace::NewTerminal",
+
+      // ----- 画面移動 -----
+      "ctrl-e h": "workspace::ActivatePaneLeft",
+      "ctrl-e j": "workspace::ActivatePaneDown",
+      "ctrl-e k": "workspace::ActivatePaneUp",
+      "ctrl-e l": "workspace::ActivatePaneRight",
+    },
+  },
+  // ==========================================
+  // 6. プロジェクト内検索（マルチバッファ・結果画面）での操作
+  // ==========================================
+  {
+    "context": "search > Editor",
+    "bindings": {
+      // 検索窓入力中から Enter で結果一覧（下部）へ移動
+      "enter": "search::SelectNextMatch",
+    },
+  },
 ]
