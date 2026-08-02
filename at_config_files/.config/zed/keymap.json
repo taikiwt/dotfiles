@@ -90,6 +90,9 @@
       "space g h": "editor::Hover", // `g h`
       // 現在のファイルのシンボル一覧
       "space g s": "outline::Toggle", // `cmd+shift+o`
+      // カーソル下の単語を検索して次/前に移動
+      "space g n": "vim::MoveToNext", // `*`
+      "space g N": "vim::MoveToPrevious", // `#`
 
       // ----- 診断系 Diagnostics -----
       "space d l": "diagnostics::Deploy", // `cmd+shift+m`
@@ -126,6 +129,9 @@
       // ----- 画面履歴移動 -----
       "space p b": "pane::GoBack", // ctrl-o
       "space p f": "pane::GoForward", // ctro-i
+
+      // ----- コピー -----
+      "space c p": "workspace::CopyRelativePath",
     },
   },
   // ==========================================
