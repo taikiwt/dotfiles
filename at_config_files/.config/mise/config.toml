@@ -1,10 +1,40 @@
+# [settings]
+# latest指定のプラグインの更新チェック頻度などを調整（必要に応じて）
+# experimental = true
+
 [tools]
-bun = "1.2.2"
-ghq = "latest"
+# --- 言語ランタイム & パッケージマネージャー ---
 node = "lts"
+bun = "1.2.2"
+pnpm = "latest"
+
+# --- Pythonツール ---
+pipx = "latest"
+poetry = "2.1.1"
+
+# --- 開発ツール & CLI（Mac / Linux 共通管理） ---
+ghq = "latest"
+supabase = "latest"
+
+# --- npm経由のCLIツール ---
 "npm:@google/gemini-cli" = "latest"
 "npm:repomix" = "latest"
-pipx = "latest"
-pnpm = "latest"
-poetry = "2.1.1"
-supabase = "latest"
+
+# ========================================================
+# CLIツール群
+# ========================================================
+ripgrep = "latest" # テキスト検索ツール(grepのモダンな代替)
+fzf = "latest" # あいまい検索で色々探せる(ファイルパス、コマンド履歴、Gitブランチなど)
+fd = "latest" # ファイル検索(findのモダンな代替)
+zoxide = "latest" # 学習型のディレクトリ移動ツール(cdのモダンな代替)
+bat = "latest" # catの上位互換(シンタックスハイライトなど)
+eza = "latest" # lsのモダンな代替
+neovim = "latest"
+starship = "latest" # プロンプトのカスタマイズ
+lazygit = "latest" # TUI操作のGitクライアント
+yazi = "latest" # TUI操作のファイルマネージャー
+jq = "latest" # JSONデータをコマンド上で整形・加工・抽出
+# gh = "latest" # GitHub公式のCLIツール(プルリクやissuesなどの操作)
+fastfetch = "latest" # システム情報表示(neofetchの代替)
+# ---
+

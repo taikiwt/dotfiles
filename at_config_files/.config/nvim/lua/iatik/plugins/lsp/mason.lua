@@ -20,6 +20,7 @@ return {
         -- "graphql",
         "dockerls",
         "jsonls",
+        "taplo", -- toml
         -- "eslint",
         -- "astro",
       },
@@ -53,6 +54,7 @@ return {
         "php-cs-fixer", -- php formatter
         "pylint", -- python linter
         "phpstan", -- php linter
+        "taplo", -- toml (LSP & formatter)
       },
     },
     dependencies = {
