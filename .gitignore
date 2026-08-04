@@ -8,6 +8,7 @@
 !/LICENSE
 !/scripts/
 !/scripts/**
+!/setup.sh
 
 ### ===== 各ツールフォルダの許可 ===== ###
 !/home/
