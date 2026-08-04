@@ -1,65 +1,49 @@
-### ===== ignore all ===== ###
+### ===== すべて除外 (ベース) ===== ###
 *
-# /*
-# /.**
 
-### ===== not ignore ===== ###
+### ===== ルート直下・共通ファイルの許可 ===== ###
 !/.gitignore
 !/.Brewfile
-!/.zshrc
-
 !/README.md
 !/LICENSE
-
-!/unused_setup_files/
-!/unused_setup_files/**
-
-!/unused_configs/
-!/unused_configs/**
-
-!/at_home_files/
-!/at_home_files/**
-
-!/backup_settings/
-!/backup_settings/**
-
-!/fedora/
-!/fedora/**
-
 !/scripts/
 !/scripts/**
 
-!/at_config_files/
-!/at_config_files/.config/
+### ===== 各ツールフォルダの許可 ===== ###
+!/home/
+!/home/**
 
-!/at_config_files/.config/nvim/
-!/at_config_files/.config/nvim/**
-/at_config_files/.config/nvim/lazy-lock.json
+!/nvim/
+!/nvim/**
+/nvim/.config/nvim/lazy-lock.json
 
-!/at_config_files/.config/yazi/
-!/at_config_files/.config/yazi/**
+!/ghostty/
+!/ghostty/**
 
-!/at_config_files/.config/karabiner/
-!/at_config_files/.config/karabiner/**
+!/yazi/
+!/yazi/**
 
-!/at_config_files/.config/xremap/
-!/at_config_files/.config/xremap/**
+!/karabiner/
+!/karabiner/**
+/karabiner/.config/karabiner/automatic_backups/
 
-!/at_config_files/.config/starship.toml
+!/git/
+!/git/**
 
-!/at_config_files/.config/git/
-!/at_config_files/.config/git/ignore
-!/at_config_files/.config/ghostty/
-!/at_config_files/.config/ghostty/config
-!/at_config_files/.config/mise/
-!/at_config_files/.config/mise/config.toml
-!/at_config_files/.config/zed/
-!/at_config_files/.config/zed/settings.json
-!/at_config_files/.config/zed/keymap.json
-!/at_config_files/.config/yabai/
-!/at_config_files/.config/yabai/yabairc
-!/at_config_files/.config/skhd/
-!/at_config_files/.config/skhd/skhdrc
+!/starship/
+!/starship/**
 
-# Ignore all .DS_Store files
+!/mise/
+!/mise/**
+
+!/zed/
+!/zed/**
+/zed/.config/zed/prompts/
+/zed/.config/zed/keymap_backup.json
+
+!/xremap/
+!/xremap/**
+
+### ===== 不要なゴミファイルの絶対除外 ===== ###
 *.DS_Store
+*.log
