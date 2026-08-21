@@ -51,10 +51,6 @@ cask "bettertouchtool"
 cask "brave-browser"
 # Automated testing of webapps for Google Chrome
 cask "chromedriver", args: { appdir: "/Applications" }
-# Ghostty-based terminal with vertical tabs and notifications for AI coding agents
-cask "cmux"
-# Write, edit, and chat about your code with AI
-cask "cursor", args: { appdir: "/Applications" }
 # App to build and share containerised applications and microservices
 cask "docker-desktop"
 # Collaborative team software
@@ -63,8 +59,6 @@ cask "figma"
 cask "firefox", args: { appdir: "/Applications" }
 # Privacy-focused Firefox-based browser
 cask "floorp"
-# Download manager with a torrent client
-cask "folx"
 cask "font-hack-nerd-font", args: { appdir: "/Applications" }
 cask "font-hackgen-nerd"
 cask "font-noto-sans-jp", args: { appdir: "/Applications" }
