@@ -29,7 +29,7 @@ fi
 
 # --- 自作スクリプトの PATH 追加 ---
 export PATH="$HOME/.local/bin:$PATH" # `~/dotfiles/scripts` からリンク
-export PATH="$HOME/dev/github.com/taikiwt/MyScripts:$PATH"
+export PATH="$HOME/dev/github.com/taikiwt/myscripts:$PATH"
 
 
 # =============================================================================

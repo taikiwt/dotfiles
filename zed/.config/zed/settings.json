@@ -8,6 +8,9 @@
 // from the command palette or from `Zed` application menu.
 {
   // すべての言語において、まずその拡張子に対応するLanguage Server（LSP）を探してフォーマットを実行
+  "session": {
+    "trust_all_worktrees": true
+  },
   "formatter": "language_server",
   // 個別に指定したい場合
   // "languages": {
@@ -35,7 +38,7 @@
   // },
   "proxy": "",
   "icon_theme": {
-    "mode": "light",
+    "mode": "dark",
     "light": "Catppuccin Mocha",
     "dark": "Zed (Default)",
   },
