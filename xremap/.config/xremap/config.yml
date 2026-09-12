@@ -3,6 +3,7 @@ modmap:
       # CapsLock: 長押しで左Ctrl、単打で変換キー
       KEY_CAPSLOCK:
         held: KEY_LEFTCTRL
+        # alone: KEY_HENKAN
         alone: KEY_HENKAN
         alone_timeout_millis: 200
 
@@ -18,7 +19,11 @@ modmap:
       # 無変換: 左Alt代用
       KEY_MUHENKAN: Alt_L
 
-      # 右Alt: 変換キー
+      # カタカナひらがな: 半角/全角でIME切り替え
+      KEY_KATAKANAHIRAGANA: KEY_HENKAN
+
+      # 右Alt: 半角/全角でIME切り替え
+      # KEY_RIGHTALT: KEY_HENKAN
       KEY_RIGHTALT: KEY_HENKAN
 
 keymap:
@@ -55,4 +60,4 @@ keymap:
       SHIFT-Ctrl_R-M-SUPER-c: Ctrl_L-c
       SHIFT-Ctrl_R-M-SUPER-v: Shift-Ctrl_L-v
       SHIFT-Ctrl_R-M-SUPER-x: Ctrl_L-x
-      SHIFT-Ctrl_R-M-SUPER-tab: M-tab
+      # SHIFT-Ctrl_R-M-SUPER-tab: M-tab # アプリ切り替え用(Hyprlandでは不要)

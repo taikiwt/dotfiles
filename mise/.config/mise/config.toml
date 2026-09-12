@@ -18,7 +18,7 @@ supabase = "latest"
 
 # --- npm経由のCLIツール ---
 "npm:@google/gemini-cli" = "latest"
-"npm:repomix" = "latest"
+"npm:repomix" = { version = "latest", trust_policy_excludes = ["fastq"] }
 
 # ========================================================
 # CLIツール群

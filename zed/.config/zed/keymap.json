@@ -52,7 +52,10 @@
     "context": "vim_mode == insert",
     "bindings": {
       "j j": "vim::NormalBefore",
+      "ctrl-h": "editor::Backspace",
       "ctrl-l": "editor::MoveRight",
+      "ctrl-b": "editor::MoveLeft",
+      "ctrl-f": "editor::MoveRight",
     },
   },
   // ==========================================
