@@ -4,7 +4,8 @@ modmap:
       KEY_CAPSLOCK:
         held: KEY_LEFTCTRL
         # alone: KEY_HENKAN
-        alone: KEY_HENKAN
+        # alone: KEY_HENKAN
+        alone: KEY_MUHENKAN
         alone_timeout_millis: 200
 
       # 左下Ctrl: 長押しでHyperキー、単打でSuper（Windows）キー

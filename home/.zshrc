@@ -171,11 +171,11 @@ setopt hist_ignore_dups      # 直前と同じコマンドは履歴に追加し�
 # --- 基本エイリアス ---
 alias c='clear'
 
-# eza (ls のモダン代替ツール: mise等で導入時にコメントアウト解除)
-# alias ls='eza --icons --group-directories-first'
-# alias la='eza -a --icons --group-directories-first'
-# alias ll='eza -al --icons --group-directories-first'
-# alias l='eza -al --icons --group-directories-first'
+# eza (ls のモダン代替ツール)
+alias ls='eza --icons --group-directories-first'
+alias la='eza -a --icons --group-directories-first'
+alias ll='eza -al --icons --group-directories-first'
+alias l='eza -al --icons --group-directories-first'
 
 # --- Neovim / Fzf エイリアス ---
 alias v='nvim'
@@ -193,7 +193,7 @@ cdr() {
   local repodir=$(ghq list | fzf -1 +m) && cd $(ghq root)/$repodir
 }
 
-# --- sitecue Custom Git Aliases ---
+# --- Custom Git Aliases ---
 # 堅牢なAdd（必ず状況を確認する）
 alias gaa='git add --all && git status'
 # 直感的なCommit（wipをデフォルトに組み込む）
@@ -209,6 +209,26 @@ alias grbi='git rebase -i HEAD~'
 alias gl='git log --oneline -n 10' # 直近10件だけサクッと見る
 alias gd='git diff --stat' # どのファイルが変わったかだけ把握する
 alias gdf='git diff > change.diff' # 変更部分をファイル出力
+
+
+# --- Arch Linux / CachyOS 固有パッケージ検索関数 ---
+if [[ "$OSTYPE" == linux* ]]; then
+  if command -v pacman >/dev/null 2>&1; then
+    fpacman() {
+      pacman -Ss "$1" | awk 'NR%2==1' | fzf --ansi \
+        --preview 'pkg=$(echo {} | sed "s/\x1b\[[0-9;]*m//g" | awk "{print \$1}" | cut -d/ -f2); pacman -Si "$pkg"' \
+        --preview-window=right:65%:wrap
+    }
+  fi
+
+  if command -v paru >/dev/null 2>&1; then
+    fparu() {
+      paru -Ss "$1" | awk 'NR%2==1' | fzf --ansi \
+        --preview 'pkg=$(echo {} | sed "s/\x1b\[[0-9;]*m//g" | awk "{print \$1}" | cut -d/ -f2); paru -Si "$pkg"' \
+        --preview-window=right:65%:wrap
+    }
+  fi
+fi
 
 
 # =============================================================================
