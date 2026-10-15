@@ -41,7 +41,7 @@
   "icon_theme": {
     "mode": "dark",
     "light": "Catppuccin Mocha",
-    "dark": "Zed (Default)",
+    "dark": "Catppuccin Mocha",
   },
   "project_panel": {
     "dock": "left",
@@ -122,7 +122,7 @@
   "vim_mode": true,
   "ui_font_size": 15,
   "buffer_font_size": 15,
-  "buffer_font_family": "Hack Nerd Font",
+  "buffer_font_family": "HackGen Console NF",
   "relative_line_numbers": "enabled",
   "soft_wrap": "editor_width",
   "terminal": {
