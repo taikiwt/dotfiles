@@ -5,7 +5,7 @@
 [tools]
 # --- 言語ランタイム & パッケージマネージャー ---
 node = "lts"
-bun = "1.2.2"
+bun = "latest"
 pnpm = "latest"
 
 # --- Pythonツール ---
